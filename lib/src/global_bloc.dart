@@ -60,19 +60,19 @@ class GlobalBloc {
     Map<String, dynamic> tempMap = newMedicine.toJson();
     SharedPreferences sharedUser = await SharedPreferences.getInstance();
     String newMedicineJson = jsonEncode(tempMap);
-    List<String> medicineJsonList = [];
+    List<String>? medicineJsonList = [];
     if (sharedUser.getStringList('medicines') == null) {
       medicineJsonList.add(newMedicineJson);
     } else {
       medicineJsonList = sharedUser.getStringList('medicines');
-      medicineJsonList.add(newMedicineJson);
+      medicineJsonList?.add(newMedicineJson);
     }
-    sharedUser.setStringList('medicines', medicineJsonList);
+    sharedUser.setStringList('medicines', medicineJsonList!);
   }
 
   Future makeMedicineList() async {
     SharedPreferences sharedUser = await SharedPreferences.getInstance();
-    List<String> jsonList = sharedUser.getStringList('medicines');
+    List<String>? jsonList = sharedUser.getStringList('medicines');
     List<Medicine> prefList = [];
     if (jsonList == null) {
       return;

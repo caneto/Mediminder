@@ -13,7 +13,7 @@ class MedicineReminder extends StatefulWidget {
 }
 
 class _MedicineReminderState extends State<MedicineReminder> {
-  GlobalBloc globalBloc;
+  late GlobalBloc globalBloc;
 
   void initState() {
     globalBloc = GlobalBloc();
